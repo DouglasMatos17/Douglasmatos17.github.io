@@ -1,60 +1,123 @@
 .projetos{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    height: 100vh;
-
-    background: rgb(12,131,162);
-    background: linear-gradient(45deg, rgba(12,131,162,1) 0%, rgba(75,30,105,1) 50%, rgba(136,32,180,1) 100%);
-    gap: 5%;
+    background: rgb(8, 83, 102);
+    background: linear-gradient(45deg, rgb(9, 92, 112) 0%, rgb(49, 19, 70) 50%, rgb(97, 23, 129) 100%);
+    height:900px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: height 1.3s;
 }
 
-.container-proj{
-    width: 300px;
-    height: 500px;
+.projetos.show{
+    height: 5200px;
+}
+
+.projetos .titulo{
+    font-size: 50px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+.projetos .chamada{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.projetos .chamada .container{
+    width: 800px;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.projetos .btn-projetos{
+    width: 200px;
+    height: 80px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    background-color: rgba(17, 0, 32, 0);
+    cursor: pointer;
+    border: 2px solid rgba(245, 245, 245, 0.904);
+    color: white;
+}
+
+.projetos .btn-projetos:hover{
+    background-color: blueviolet;
+    transition: 1s;
+}
+
+.projetos .container-left{
+    display: none;
+    background-color: rgba(0, 255, 255, 0);
+    margin: 50px;
+    margin-top: 100px;
+    gap: 55px;
+    transform: translateX(-2000px);
+    transition: transform 1.3s;
+}
+
+.projetos .container-right{
+    display: none;
+    flex-direction: row-reverse;
+    background-color: rgba(0, 255, 255, 0);
+    margin: 50px;
+    margin-top: 100px;
+    gap: 55px;
+    transform: translateX(2000px);
+    transition: transform 1.3s;
+}
+
+.projetos .container-left.leftOn{
+    transform: translateX(0px);
+}
+
+.projetos .container-right.rightOn{
+    transform: translateX(0px);
+}
+
+
+.projetos .card{
+    width: 800px;
+    height: 450px;
     position: relative;
-}
-
-.projetos-card{
-    width: 300px;
-    height: 500px;
-
-
     border-radius: 10px;
-
     box-shadow: 5px 5px 20px black;
-    overflow-y: scroll; /* esse atributo faz com q tudo q esteja no eixo Y que saia da div seja ocultado*/
+
 }
 
-.card-info{
+.projetos .card img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.projetos .resumo h1{
+    margin-bottom: 15px;
+    font-size: 35px;
+}
+.projetos .resumo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 550px;
+    line-height: 27px;
+}
+
+.projetos .card .info{
     display: flex;
     flex-direction: column;
     
     position: absolute;
-    top: 400px;
-    left: 20px;
+    bottom: 30px;
+    right: 40px;
     
     z-index: 100;
 }
-
-.projetos-card img{
-    width: 300px;
-    top: 0px;
-}
-
-.projetos-card::-webkit-scrollbar{
-    background: rgba(0, 0, 0, 0);
-    width: 3px;
-    display: none;
-}
-
-.projetos-card::-webkit-scrollbar-thumb{
-    background-color: rgb(90, 14, 161);
-    border-radius: 50px;
-}
-
-
-
 
 
 .bt-proj{
@@ -80,18 +143,167 @@
     transition: 0.5s;
 }
 
-.projetos:hover > :not(:hover){
-    opacity: .4;
-    transform: scale(0.9);
-}
+
+
+
+
+
+
+
 
 @media (max-width: 1500px){
+    .projetos .container-right{
+        display: flex;
+        flex-direction: column;
+    }
 
-    .projetos{
-        flex-wrap: wrap;
+    .projetos .container-left{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .projetos.show{
+        height: 7900px;
+    }
+}
+
+@media (max-width: 900px){
+
+    .projetos .titulo{
+        font-size: 40px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    .projetos .chamada .container{
+        width: 700px;
+        font-size: 16px;
+        line-height: 32px;
+        text-align: center;
+    }
+
+    .projetos .card{
+        width: 100%;
         height: auto;
-        gap: 50px;
-        padding-top: 70px;
-        padding-bottom: 70px;
+    }
+
+    .projetos.show{
+        height: 7700px;
+    }
+
+}
+
+@media (max-width: 850px){
+    .projetos.show{
+        height: 7500px;
+    }
+}
+
+
+@media (max-width: 800px){
+
+    .projetos .titulo{
+        font-size: 40px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    .projetos .chamada .container{
+        width: 600px;
+        font-size: 16px;
+        line-height: 32px;
+        text-align: center;
+    }
+
+    .projetos.show{
+        height: 7400px;
+    }
+}
+
+@media (max-width: 750px){
+    .projetos.show{
+        height: 7200px;
+    }
+}
+
+@media (max-width: 700px){
+
+    .projetos .titulo{
+        font-size: 30px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+    .projetos .chamada .container{
+        width: 400px;
+        font-size: 15px;
+        line-height: 25px;
+        text-align: center;
+    }
+
+    .projetos .resumo{
+        width: auto;
+    }
+
+    .projetos.show{
+        height: 7000px;
+    }
+}
+
+@media (max-width: 550px){
+
+    .projetos .titulo{
+        font-size: 30px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+    .projetos .chamada .container{
+        width: 330px;
+        font-size: 15px;
+        line-height: 25px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 530px){
+    .projetos.show{
+        height: 7100px;
+    }
+}
+
+@media (max-width: 480px){
+    .projetos.show{
+        height: 7200px;
+    }
+}
+
+@media (max-width: 450px){
+    .projetos.show{
+        height: 7400px;
+    }
+}
+
+@media (max-width: 460px){
+    .projetos.show{
+        height: 7400px;
+    }
+}
+
+@media (max-width: 430px){
+    .projetos.show{
+        height: 7600px;
+    }
+}
+
+@media (max-width: 408px){
+    .projetos.show{
+        height: 7700px;
+    }
+}
+
+@media (max-width: 396px){
+    .projetos.show{
+        height: 8000px;
     }
 }
